@@ -1,0 +1,153 @@
+/* Common resets */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+  background: #f0f4f8;
+  color: #333;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Part 1: CSS3 Transitions and Keyframe Animations */
+
+/* Button hover effect with a transform and color transition */
+.animated-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border: 2px solid #007acc;
+  background-color: #fff;
+  color: #007acc;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.animated-button:hover {
+  background-color: #007acc;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Continuous fade and slide animation */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.fade-slide {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  animation: fadeSlide 4s infinite ease-in-out;
+}
+
+/* Part 3: Box animation triggered by JS */
+
+.box {
+  width: 150px;
+  height: 150px;
+  margin: 2rem auto;
+  background-color: #007acc;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  /* Smooth transform resets */
+  transition: transform 0.3s ease;
+}
+
+/* Define keyframe for bounce effect */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Add class to trigger bounce animation */
+.bounce-animation {
+  animation: bounce 1s ease infinite;
+}
+
+/* Part 3: Card flip styles */
+.card {
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Flipped state */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+.card-front {
+  background-color: #007acc;
+}
+
+.card-back {
+  background-color: #e94e77;
+  transform: rotateY(180deg);
+}
+
+/* General button style for consistency */
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #005f99;
+}
